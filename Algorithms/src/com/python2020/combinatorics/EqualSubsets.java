@@ -1,4 +1,4 @@
-package com.python2020.arrays;
+package com.python2020.combinatorics;
 
 public class EqualSubsets {
 	public static boolean canPartition(int[] a) {
