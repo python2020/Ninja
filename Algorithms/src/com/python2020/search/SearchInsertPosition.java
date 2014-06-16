@@ -1,4 +1,4 @@
-package com.python2020.arrays;
+package com.python2020.search;
 
 public class SearchInsertPosition {
     public int searchInsert(int[] A, int target) {
