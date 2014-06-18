@@ -22,22 +22,22 @@ public class EvaluateReversePolishNotation {
                 // assume the input is always valid
                 s = stack.pop();
                 f = stack.pop();
-                switch (token) {
-                    case "*": 
-                        stack.push(f * s);
-                        break;
-                    case "/":
-                        stack.push(f / s);
-                        break;
-                    case "+":
-                        stack.push(f + s);
-                        break;
-                    case "-": 
-                        stack.push(f - s);
-                        break;
-                    default: 
-                        break;
-                }
+//                switch (token) { // compatible with 1.7
+//                    case "*": 
+//                        stack.push(f * s);
+//                        break;
+//                    case "/":
+//                        stack.push(f / s);
+//                        break;
+//                    case "+":
+//                        stack.push(f + s);
+//                        break;
+//                    case "-": 
+//                        stack.push(f - s);
+//                        break;
+//                    default: 
+//                        break;
+//                }
             } else {
                 stack.push(Integer.parseInt(token));
             }
