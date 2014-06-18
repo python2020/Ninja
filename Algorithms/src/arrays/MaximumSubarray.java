@@ -1,4 +1,4 @@
-package com.python2020.arrays;
+package arrays;
 
 public class MaximumSubarray {
     public int maxSubArray(int[] A) {

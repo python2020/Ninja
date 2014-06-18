@@ -1,4 +1,4 @@
-package com.python2020.arrays;
+package arrays;
 
 public class RemoveDuplicatesFromSortedArray {
 	public int removeDuplicates(int[] A) {

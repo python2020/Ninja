@@ -1,4 +1,4 @@
-package com.python2020.arrays;
+package arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.python2020.arrays;
+package arrays;
 
 import java.util.HashMap;
 import java.util.Map;
