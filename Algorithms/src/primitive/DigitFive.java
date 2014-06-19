@@ -43,16 +43,16 @@ public class DigitFive {
 		// counts associated with most significant digits
 		int curCounts = digitFiveFastHelper(divisor-1, nextDivisor);
 		
-		// case 1
-		if (digit == 5) return remainder + 1 + 5 * curCounts;
+		// case 1: "5remainder" + "0-4" 
+		if (digit == 5) return remainder + 1 + 5 * curCounts; 
 		
 		// counts associated with remainder
 		int remCounts = digitFiveFastHelper(remainder, nextDivisor);
 		
-		// case 2
-		if (digit < 5) return digit * curCounts + remCounts;
+		// case 2: "0-digit" + remainder 
+		if (digit < 5) return digit * curCounts + remCounts; 
 		
-		// case 3
+		// case 3: "5" + "0-4,6-digit" + remainder 
 		return divisor + (digit-1) * curCounts + remCounts;
 		
 	}
@@ -69,7 +69,6 @@ public class DigitFive {
 		assert(digitFiveSlow(55) == 11);
 		assert(digitFiveSlow(105) == 20);
 		assert(digitFiveSlow(1234567) == 562025);
-		
 	}
 
 	public static void crossValidation() {		
