@@ -18,7 +18,7 @@ public class TrapRainWater {
 			highest = Math.max(A[i], highest);
 		}
 
-		return sum;
+		return sum ;
 	}
 
 	public static void main(String[] args) {
