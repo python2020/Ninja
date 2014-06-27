@@ -3,7 +3,6 @@ package recursion;
 public class SudokuSolver {
     public void solveSudoku(char[][] board) {
     	solveSudokuHelper(board, 0); // 1d for ease of recursion 
-
     }
     
     public boolean solveSudokuHelper(char[][] board, int position) { 	
