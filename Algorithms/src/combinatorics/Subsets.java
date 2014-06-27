@@ -65,6 +65,28 @@ public class Subsets {
 		}
     }	
 	
+    public List<List<Integer>> subsetsWithDup(int[] num) {
+        ArrayList<List<Integer>> res = new ArrayList<List<Integer>>();
+        ArrayList<Integer> sub = new ArrayList<Integer>();
+        
+        Arrays.sort(num); // !
+        subsetsWithDup(0, num, sub, res);
+        
+        return res;    
+    }
+    
+    public void subsetsWithDup(int k, int[] num, ArrayList<Integer> sub, ArrayList<List<Integer>> res) {
+        res.add((ArrayList<Integer>) sub.clone());
+        if (k == num.length) return;
+        
+        for (int i = k; i < num.length; i++) {
+            if (i > k && num[i] == num[i-1]) continue;  // ! i-1
+            sub.add(num[i]);
+            subsetsWithDup(i + 1, num, sub, res);
+            sub.remove(sub.size() - 1);       
+        }
+    }
+	
 	public static void main(String[] args) {
 		int N = 10;
 		int[] S = new int[N];
