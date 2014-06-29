@@ -8,25 +8,26 @@ public class ConvertSortedListToBST {
 		ListNode x = head;
 		while (x != null) { x = x.next; length++; }
 		
-		ListNode[] c = new ListNode[1];
-		c[0] = head;
+		ListNode[] curr = new ListNode[1];
+		curr[0] = head;
 		
-		return helper(c, length);
+		return helper(curr, length);
 	}
 
-	public TreeNode helper(ListNode[] c, int length) {
+	public TreeNode helper(ListNode[] curr, int length) {
 		if (length <= 0) return null;
 
-		int half = length / 2;     
+		int half = length >> 1;     
 
-		TreeNode l = helper(c, half);
+		TreeNode l = helper(curr, half);
 		
-		TreeNode n = new TreeNode(c[0].val);
-		c[0] = c[0].next;
+		TreeNode root = new TreeNode(curr[0].val);
 		
-		n.left = l;
-		n.right = helper(c, length-half-1);
+		curr[0] = curr[0].next; // advance to the next node!
+		
+		root.left = l;
+		root.right = helper(curr, length-half-1);
 
-		return n;    
+		return root;    
 	}
 }
