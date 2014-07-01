@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class BTPreoder {
+public class BTPreorder {
 	public List<Integer> preorderTraversal(TreeNode root) {
 		ArrayList<Integer> res = new ArrayList<Integer>();
 
