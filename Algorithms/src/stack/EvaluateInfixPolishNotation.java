@@ -24,7 +24,6 @@ public class EvaluateInfixPolishNotation {
 
 			if (operSet.contains(c)) {
 				ostack.push(c);
-				//
 			} else if (c == '(') {
 				continue;
 			} else if (c == ')') {
@@ -32,13 +31,12 @@ public class EvaluateInfixPolishNotation {
 				f = vstack.pop();
 
 				switch(ostack.pop()) {
-				case '+': vstack.push(f + s); break;
-				case '-': vstack.push(f - s); break;
-				case '*': vstack.push(f * s); break;
-				case '/': vstack.push(f / s); break;
-				default: break;
+					case '+': vstack.push(f + s); break;
+					case '-': vstack.push(f - s); break;
+					case '*': vstack.push(f * s); break;
+					case '/': vstack.push(f / s); break;
+					default: break;
 				}
-				System.out.println(vstack.peek());
 			} else {
 				vstack.push(c-'0');
 			}
@@ -51,7 +49,6 @@ public class EvaluateInfixPolishNotation {
 		int v = (((2+5)*(6+1))-9)/4;
 		String exp = "(((2+5)*(6+1))-9)/4";
 		EvaluateInfixPolishNotation x = new EvaluateInfixPolishNotation();
-		System.out.println(v);
 		assert(x.eval(exp) == v);
 	}
 }
