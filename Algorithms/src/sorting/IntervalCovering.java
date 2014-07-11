@@ -11,7 +11,7 @@ public class IntervalCovering {
 		
 		public ExInterval(int s, int e) { // !
 			super(s, e);
-			checked = false;
+			checked = false;//
 		}
 	}
 	
