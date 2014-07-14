@@ -92,17 +92,13 @@ public class CountingSortPerson {
 	public static void main(String[] args) {
 		Random rnd = new Random();
 		for (int times = 0; times < 100; ++times) {
-			int size = rnd.nextInt(10000) + 1;
+			int size = rnd.nextInt(100000) + 1;
 
 			int k = rnd.nextInt(size) + 1;
 
 			ArrayList<Person> people = new ArrayList<Person>();
 			for (int i = 0; i < size; ++i) 
 				people.add(new Person(rnd.nextInt(k), randomString(rnd.nextInt(10) + 1)));
-
-			HashSet<Integer> keySet = new HashSet<Integer>();
-			for (Person p : people) 
-				keySet.add(p.key);
 			
 			ArrayList<Person> clone = (ArrayList<Person>) people.clone();
 			
