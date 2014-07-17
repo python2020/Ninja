@@ -16,7 +16,7 @@ public class CountNSay {
             cnt = 1;
             for (int i = 1; i < s.length(); i++) { // from 1
                 if (s.charAt(i) != c) {
-                    sb.append((char) (cnt + '0')); // cnt is at most 3?
+                    sb.append(cnt); // cnt is at most 3? works even cnt is >- 10
                     sb.append(c); 
                     
                     c = s.charAt(i);
@@ -25,7 +25,7 @@ public class CountNSay {
                     cnt++;
                 }
             }
-            sb.append((char) (cnt + '0'));
+            sb.append(cnt);
             sb.append(c);
             
             // say
