@@ -1,7 +1,7 @@
 package lists;
 
 public class MergeLists {
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0), t = dummy;
         dummy.next = l1;
         ListNode p1;
