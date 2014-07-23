@@ -11,7 +11,7 @@ public class SearchRotatedSortedArray {
     public boolean searchHelper(int[] A, int l, int h, int target) {
         int m = 0, k;
         while (l <= h) {
-            m = (l + h) >> 1;
+            m = l + ((h - l) >> 1);
             k = A[m];
             
             if (k == target) return true;

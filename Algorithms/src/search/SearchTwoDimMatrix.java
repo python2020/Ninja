@@ -8,7 +8,7 @@ public class SearchTwoDimMatrix {
 		int m = 0, v = 0;
 
 		while (l <= h) {
-			m = (l + h) >> 1; 
+			m = l + ((h - l) >> 1); 
 			v = matrix[m][0];
 	
 			if (v == target) return true;
@@ -23,7 +23,7 @@ public class SearchTwoDimMatrix {
 		h = matrix[0].length - 1;
 
 		while (l <= h) {
-			m = (l + h) >> 1;
+			m = l + ((h - l) >> 1);
 			v = row[m];
 	
 			if (v == target) return true;

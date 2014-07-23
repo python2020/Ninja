@@ -10,7 +10,7 @@ public class SearchRange {
 		int l = 0, h = A.length - 1, m, mv;
 
 		while (l <= h) {
-			m = (l + h) / 2;
+			m = l + ((h - l) >> 1);
 			mv = A[m];
 
 			if (mv == target) {
@@ -30,7 +30,7 @@ public class SearchRange {
 		h = A.length - 1;
 
 		while (l <= h) {
-			m = (l + h) / 2;
+			m = l + ((h - l) >> 1);
 			mv = A[m];
 
 			if (mv == target) {

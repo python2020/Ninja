@@ -5,7 +5,7 @@ public class SearchInsertPosition {
         int l = 0, h = A.length-1, m = 0, v = 0;
         
         while (l <= h) {
-            m = (l + h) >> 1;
+            m = l + ((h - l) >> 1);
             v = A[m];
             
             if (v < target) {
