@@ -42,7 +42,7 @@ public class MedianTwoSortedArrays {
 
 	public static void main(String[] args) {
 		MedianTwoSortedArrays x = new MedianTwoSortedArrays();
-		int[] a = {};
+		int[] a = {1,2,3};
 		int[] b = {1};
 		System.out.println(x.findMedianSortedArrays(a, b));
 

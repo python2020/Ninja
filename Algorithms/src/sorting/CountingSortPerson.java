@@ -2,7 +2,6 @@ package sorting;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Random;
 import java.util.TreeMap;
@@ -16,6 +15,7 @@ public class CountingSortPerson {
 			key = k;
 			name = n;
 		}
+
 		@Override
 		public int hashCode() {
 			return key + 32 * name.hashCode();
@@ -30,26 +30,26 @@ public class CountingSortPerson {
 		public boolean equals(Object o) {
 			if (o instanceof Person) {
 				Person p = (Person) o;
-				return key == p.key && name.equals(p.name);  
+				return key == p.key && name.equals(p.name);
 			}
-			
+
 			return false;
 		}
 	}
-
 
 	public static void countingSort(ArrayList<Person> ps) {
 		Map<Integer, Integer> keyToCount = new TreeMap<Integer, Integer>();
 		Integer c;
 		for (Person p : ps) {
 			c = keyToCount.get(p.key);
-			if (c == null) c = 0;
+			if (c == null)
+				c = 0;
 			keyToCount.put(p.key, c + 1);
 		}
 
 		Map<Integer, Integer> keyToOffset = new TreeMap<Integer, Integer>();
 		int start = 0;
-		for (Map.Entry<Integer, Integer> entry : keyToCount.entrySet()) {	    	
+		for (Map.Entry<Integer, Integer> entry : keyToCount.entrySet()) {
 			keyToOffset.put(entry.getKey(), start);
 			start += entry.getValue();
 		}
@@ -57,11 +57,11 @@ public class CountingSortPerson {
 		Person p, t;
 		Integer offset;
 		int i = 0;
-		while (i < ps.size()) {	    	
+		while (i < ps.size()) {
 			p = ps.get(i);
 
 			c = keyToCount.get(p.key);
-			if (c == null) { 
+			if (c == null) {
 				i++;
 				continue; // already in the correct place
 			}
@@ -71,7 +71,8 @@ public class CountingSortPerson {
 			ps.set(offset, p);
 			ps.set(i, t);
 
-			if (c == 1) keyToCount.remove(p.key);
+			if (c == 1)
+				keyToCount.remove(p.key);
 			else {
 				keyToCount.put(p.key, c - 1);
 				keyToOffset.put(p.key, offset + 1);
@@ -89,6 +90,9 @@ public class CountingSortPerson {
 		return ret.toString();
 	}
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Random rnd = new Random();
 		for (int times = 0; times < 100; ++times) {
@@ -97,20 +101,22 @@ public class CountingSortPerson {
 			int k = rnd.nextInt(size) + 1;
 
 			ArrayList<Person> people = new ArrayList<Person>();
-			for (int i = 0; i < size; ++i) 
+
+			for (int i = 0; i < size; ++i)
 				people.add(new Person(rnd.nextInt(k), randomString(rnd.nextInt(10) + 1)));
-			
+
 			ArrayList<Person> clone = (ArrayList<Person>) people.clone();
-			
+			// TODO:1
 			countingSort(clone);
 			Collections.sort(people);
-
+			//TODO:2
 			for (int i = 1; i < people.size(); ++i) {
-				//System.out.println(people.get(i).key + " " + clone.get(i).key);
-				assert(people.get(i).key == clone.get(i).key);
+				// System.out.println(people.get(i).key + " " +
+				// clone.get(i).key);
+				assert (people.get(i).key == clone.get(i).key);
 			}
 		}
-		
+
 		System.out.println("Done");
 	}
 }
