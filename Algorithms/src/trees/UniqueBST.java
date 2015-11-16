@@ -5,11 +5,22 @@ import java.util.List;
 
 public class UniqueBST {
 	public int numTrees(int n) {
-		if (n <= 1) return 1;
+		int[] dp = new int[n+1];
+		dp[0] = 1;
+
+		return numTreesHelper(n, dp);
+	}
+
+	public int numTreesHelper(int n, int[] dp) {
+		if (dp[n] != 0) return dp[n];
+
 		int total = 0;
 		for (int i = 1; i <= n; i++) {
-			total += numTrees(i-1) * numTrees(n-i); // i => root
+			total += numTreesHelper(i-1, dp) * numTreesHelper(n-i, dp); // i => root
 		}
+
+		dp[n] = total;
+
 		return total;
 	}
 
